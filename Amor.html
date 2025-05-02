@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tamara, EU TE AMO</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffe6f0;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      position: relative;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #d1006f;
+      margin-top: 50px;
+    }
+
+    .frase {
+      font-size: 1.5em;
+      margin: 20px;
+      color: #a6005c;
+    }
+
+    .coracao {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: cair 10s linear infinite;
+      border-radius: 0 0 50% 50%;
+    }
+
+    .coracao::before,
+    .coracao::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .coracao::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .coracao::after {
+      top: 0;
+      left: -10px;
+    }
+
+    @keyframes cair {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tamara, EU TE AMO</h1>
+
+  <div class="frase">Você é a razão do meu sorriso todos os dias.</div>
+  <div class="frase">Cada momento ao seu lado é um presente.</div>
+  <div class="frase">Te amar é a melhor parte da minha vida.</div>
+  <div class="frase">Você é tudo o que eu sempre sonhei.</div>
+
+  <script>
+    // Gera corações aleatórios
+    function criarCoracao() {
+      const coracao = document.createElement('div');
+      coracao.classList.add('coracao');
+      coracao.style.left = Math.random() * 100 + "vw";
+      coracao.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      document.body.appendChild(coracao);
+
+      setTimeout(() => {
+        coracao.remove();
+      }, 10000);
+    }
+
+    setInterval(criarCoracao, 300);
+  </script>
+
+</body>
+</html>
